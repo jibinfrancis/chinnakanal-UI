@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary: #4B8C1C;
+  --secondary: #1C4017;
+  --primaryBackground:#FFFFFF;
+  --tertiary: #2A5914;
+  --lightfont: #86A694;
+  --nav:black;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-section{
+  height:300px;
+  object-fit: cover;
+}
+.navBar{
+  height:80px;
+  position: sticky;
+  z-index:99;
+  top:0;
+  background-color: var(--primaryBackground);
+  /* color:white; */
+}
+.navContainer{
   display: flex;
-  flex-direction: column;
+  height:100%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 50px;
+  padding-right:50px;
+}
+.navContainer .nav-logo{
+  height: 50px;
+  width: 50px;
+}
+.navContainer >h1{
+  background-color: #77ff82;
+background-image: linear-gradient(to top, var(--primary) 0%, var(--lightfont) 100%);
+background-size: 100%;
+background-clip: text;
+-webkit-background-clip: text;
+-moz-background-clip: text;
+-webkit-text-fill-color: transparent;
+-moz-text-fill-color: transparent;
+cursor: pointer;
+text-decoration: none;
+font-size: 2rem;
+}
+.navbar-menu{
+  list-style-type: none;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.navbar-menu .btn-book-now{
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 1rem;
+  color:var(--primaryBackground);
+  background-color: var(--primary);
+  border: 0px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.navbar-menu li{
+padding:10px 0px;
+margin-left:15px;
+margin-right: 15px;
+cursor: pointer;
+transition: all 0.36s;
+/* color:var(--primary); */
+font-size:1rem;
+font-weight: 700;
+}
+.navbar-menu li:hover{
+  color:var(--primary);
+  /* border-bottom: 2px solid var(--primary); */
+}
+.navbar-togglebtn{
+  cursor: pointer;
+}
+.navbar-togglebtn .bar {
+  display: none;
+  width: 25px;
+  height: 3px;
+  margin: 5px 10px;
+  transition: all 0.3s ease-in-out;
+  background: var(--primary);
+}
+.navbar-togglebtn.active .bar:nth-child(2) {
+  opacity: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar-togglebtn.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar-togglebtn.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+@media screen and (max-width:960px){
+  .navbar-togglebtn .bar{
+      display: block;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .navContainer{
+      padding:0;
   }
+  .navContainer >h1{
+      margin-left:10px;
+  }
+  .navbar-menu{
+      display: grid;
+      grid-template-columns: auto;
+      width:100%;
+      position: absolute;
+      top:-1000px;
+      opacity: 0;
+      z-index:-1;
+      /* height:50vh; */
+      background: var(--secondary);
+      transition: all 0.3s ease;
+      /* box-shadow: ; */
+  }
+  .navbar-menu.active{
+      top:100%;
+      z-index: 99;
+      opacity: 1;
+      transition: all 0.3s ease;
+  }
+  .navbar-menu li{
+     display: flex;
+     border-bottom:none !important;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     width:100%;
+     padding:10px 20px;
+     color:var(--primaryBackground)
+
+
+  }
+  .navbar-menu .btn-book-now{
+    transform: translateY(30vh);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 50px;
+    max-width: 200px;
+  }
+  .navbar-menu li:hover{
+      background:var(--lightfont);
+      color:#ffffff;
+  }
+  
 }
